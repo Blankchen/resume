@@ -6,5 +6,6 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://blankchen.github.io',
+  base: '/resume',
   integrations: [preact(), tailwind()]
 });
