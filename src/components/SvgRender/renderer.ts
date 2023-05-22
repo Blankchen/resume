@@ -47,36 +47,13 @@ export class Renderer {
 
 
   handleSvgClick(e: any) {
-    const targetGroup = e.target?.closest('g') || {};
-    const groupId = targetGroup.dataset ? targetGroup.dataset.groupId : '';
-    if (!groupId) {
+    const targetGroup = e.target?.closest('g');
+    if (!targetGroup) {
       return;
     }
 
     e.stopImmediatePropagation();
-
-    if (/^ext_link/.test(groupId)) {
-      window.open(`https://${groupId.replace('ext_link:', '')}`);
-      return;
-    }
-
-    if (/^json:/.test(groupId)) {
-      // e.g. /roadmaps/frontend-beginner.json
-      const newJsonUrl = groupId.replace('json:', '');
-
-      // this.switchRoadmap(newJsonUrl);
-      return;
-    }
-
-    if (/^check:/.test(groupId)) {
-      console.log('====== check')
-      return;
-    }
-
-    // Remove sorting prefix from groupId
-    const normalizedGroupId = groupId.replace(/^\d+-/, '');
-
-    console.log('====== click')
+    console.log('====== click', targetGroup.classList)
   }
 
   init() {
