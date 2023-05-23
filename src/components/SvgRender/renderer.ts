@@ -53,7 +53,15 @@ export class Renderer {
     }
 
     e.stopImmediatePropagation();
-    console.log('====== click', targetGroup.classList)
+
+    const id = targetGroup.classList[0];
+    window.dispatchEvent(
+      new CustomEvent(`topic.click`, {
+        detail: {
+          topicId: id,
+        },
+      })
+    );
   }
 
   init() {

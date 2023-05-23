@@ -1,23 +1,16 @@
 import { h } from 'preact';
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import type { ComponentChildren } from 'preact';
+import { useLoadTopic } from "../hooks/use-load-topic"
 
-type Prop = {
-  title: string;
-  children: ComponentChildren;
-};
 
-export default function Dialog(prop: Prop) {
-  const { title, children } = prop;
-  const [isActive, setIsActive] = useState(true);
+export default function Dialog() {
+  const [isActive, setIsActive] = useState(false);
   const [topicHtml, setTopicHtml] = useState('');
 
-  useEffect(() => {
-    getTopicDetail();
-  }, []);
-
-  const getTopicDetail = async () => {
-    const url = '/resume/posts/post-1/'
+  useLoadTopic(async ({topicId})=> {
+    
+    const url = `/resume/posts/${topicId}`
     const htmlData = await fetch(url, {
       headers: {
         Accept: 'text/html',
@@ -25,9 +18,11 @@ export default function Dialog(prop: Prop) {
     }).then(res => res.text());
     const node = new DOMParser().parseFromString(htmlData, 'text/html');
     const topicHtml = node?.getElementById('main-content')?.outerHTML || '';
-
-    setTopicHtml(topicHtml);
-  }
+    if (topicHtml) {
+      setIsActive(true)
+      setTopicHtml(topicHtml);
+    }
+  })
 
 
   if (!isActive) {
@@ -36,9 +31,8 @@ export default function Dialog(prop: Prop) {
 
   return (
     <div class="bg-smoke-light fixed inset-0 z-50 flex overflow-auto">
-      <div class="relative m-auto flex w-full max-w-md flex-col rounded-lg bg-white p-8 shadow-lg">
-        <h2 class="text-xl">{title}</h2>
-        <div class="py-5">{children}</div>
+      <div class="relative m-auto flex w-full max-w-lg flex-col rounded-lg bg-white p-8 shadow-lg">
+        <button type="button" class="absolute top-4 right-4" onClick={() => setIsActive(false)}>X</button>
         <div
           id="topic-content"
           class="py-5"
