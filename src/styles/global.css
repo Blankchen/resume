@@ -24,9 +24,7 @@ html.dark {
 
 body {
   margin: 0 auto;
-  min-width: 100%;
-  width: fit-content;
-  padding: 1rem;
+  width: 100%;
   line-height: 1.5;
 }
 

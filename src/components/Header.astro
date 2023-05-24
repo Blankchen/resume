@@ -2,13 +2,12 @@
 import ThemeIcon from './ThemeIcon.astro';
 import Navigation from './Navigation/index.astro';
 import Hamburger from './Hamburger.astro';
-
 ---
-<header>
-  <nav class="w-full flex items-center justify-between" aria-label="Global">
+<header class="p-5">
+  <nav class="w-full flex items-center justify-start" aria-label="Global">
     <ThemeIcon />
     <Navigation />
-    <div class="md:hidden flex flex-1 justify-end">
+    <div class="md:hidden ml-auto">
       <Hamburger class="hamburger" />
     </div>
   </nav>

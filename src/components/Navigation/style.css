@@ -2,8 +2,9 @@
 
 .nav-links {
   width: 100%;
-  top: 5rem;
-  left: 48px;
+  position: absolute;
+  top: 85px;
+  left: 0;
   background-color: #ff9776;
   display: none;
   margin: 0;
@@ -24,7 +25,7 @@
 }
 
 .expanded {
-  display: unset;
+  display: block;
 }
 
 @media screen and (min-width: 768px) {
