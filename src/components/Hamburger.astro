@@ -7,16 +7,20 @@
 </div>
 
 
-<style>
+<style lang="scss">
 .hamburger {
   cursor: pointer;
 }
 
 .hamburger .line {
   display: block;
-  width: 40px;
-  height: 5px;
+  width: 45px;
+  height: 4px;
   margin-bottom: 10px;
-  background-color: #ff9776;
+  background-color: black;
+}
+
+:global(.dark) .hamburger .line  { 
+  background-color: white;
 }
 </style>
