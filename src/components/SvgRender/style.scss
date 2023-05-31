@@ -1,0 +1,42 @@
+.svg-render {
+  max-width: 960px;
+  margin: 0 auto;
+
+  code {
+    background: #1e1e3f;
+    color: #9efeff;
+    padding: 3px 5px;
+    font-size: 14px;
+    border-radius: 3px;
+  }
+  
+  svg {
+    text tspan {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeSpeed;
+    }
+
+    g {
+      cursor: pointer;
+
+      rect {
+        user-select: none;
+      }    
+    }
+    
+    g:hover > [fill='rgb(65,53,214)'] {
+      fill: #232381;
+      stroke: #232381;
+    }
+    
+    g:hover > [fill='#FFFF04'] {
+      fill: #d6d700;
+    }
+    
+    g:hover > [fill='#FCE59A'] {
+      fill: #f3c950;
+    }
+  }
+  
+}

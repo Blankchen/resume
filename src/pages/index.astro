@@ -1,17 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Greeting from '../components/Greeting.jsx';
-import Svg from '../components/SvgRender/index.astro';
+import SvgRender from '../components/SvgRender/index.astro';
 import Dialog from '../components/Dialog'
 
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Roadmap">
 	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<Greeting client:only messages={["Hej", "Hallo", "Hola", "Habari"]} />
 		<Dialog client:idle />
-		<Svg></Svg>
+		<SvgRender />
 
 	</main>
 </Layout>
