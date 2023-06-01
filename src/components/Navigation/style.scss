@@ -5,12 +5,8 @@
   left: 0;
   display: none;
   margin: 0 auto;
-  background-color: #fff;
   border-bottom-width: 2px;
-
-  @at-root .dark &  {
-    background-color: #0d0950;
-  }
+  background-color: #0d0950;
   
   @media screen and (min-width: 768px) {
     display: block;
@@ -30,6 +26,7 @@
     text-transform: uppercase;
     border-bottom: solid 3px transparent;
     -webkit-tap-highlight-color: transparent;
+    color: #fff;
 
     @media screen and (min-width: 768px) {
       display: inline-block;
@@ -37,11 +34,7 @@
 
       &:hover,
       &:focus {
-        border-bottom: solid 3px black;
-
-        @at-root .dark &  {
-          border-bottom: solid 3px white;
-        }
+        border-bottom: solid 3px #fff;
       }
     }
 

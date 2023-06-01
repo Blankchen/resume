@@ -16,11 +16,10 @@
   display: block;
   width: 45px;
   height: 4px;
-  margin-bottom: 10px;
-  background-color: black;
-}
-
-:global(.dark) .hamburger .line  { 
-  background-color: white;
+  background-color: #fff;
+  
+  &:not(:first-child) {
+    margin-top: 10px;
+  }
 }
 </style>
